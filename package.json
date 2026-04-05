@@ -8,10 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.378.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "lucide-react": "^0.378.0"
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

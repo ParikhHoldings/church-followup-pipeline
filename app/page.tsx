@@ -83,6 +83,24 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const BLOG_POSTS = [
+    {
+      title: "The 24-Hour Rule: Why Timing is Everything",
+      slug: "church-follow-up-timing",
+      excerpt: "Why the first 24 hours determine if a visitor returns or drifts away.",
+    },
+    {
+      title: "5 Message Templates You Can Copy-Paste Today",
+      slug: "follow-up-message-templates",
+      excerpt: "Exact wording for SMS, email, and personal reach-out pipelines.",
+    },
+    {
+      title: "Choosing Your CRM: RockRMS vs PCO vs GHL",
+      slug: "church-crm-comparisons",
+      excerpt: "The honest breakdown of software options for every church size.",
+    },
+  ];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -287,6 +305,34 @@ export default function Home() {
                 <h3 className="mb-3 text-xl font-bold text-slate-900">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-600">{item.detail}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Latest from the blog</h2>
+              <p className="text-slate-600">
+                Actionable advice on church technology, automation, and pastoral strategy.
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {BLOG_POSTS.map((post) => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100"
+              >
+                <h3 className="mb-3 text-xl font-bold leading-tight group-hover:text-brand-600">{post.title}</h3>
+                <p className="mb-6 text-sm text-slate-500">{post.excerpt}</p>
+                <div className="mt-auto flex items-center gap-2 text-sm font-bold text-brand-600">
+                  Read article <ArrowRight className="h-4 w-4" />
+                </div>
+              </a>
             ))}
           </div>
         </div>
